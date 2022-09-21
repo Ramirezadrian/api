@@ -1,9 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-
 const userRouter = require('./Routers/UserRouter')
-const consumers = require('./Consumers/consumers')
 const databaseFn = require('./config/database')
 
 
@@ -12,8 +10,6 @@ const databaseFn = require('./config/database')
   dotenv.config()
   const database = databaseFn()
   console.log({ database })
-  await consumers()
- 
 
   await mongoose.connect(`mongodb://${database.host}:${database.port}/${database.name}`)
 

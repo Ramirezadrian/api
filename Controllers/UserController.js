@@ -1,15 +1,15 @@
-const loggerFn = require('../utils/logger')
+
 
 class UserController {
   constructor (service) {
     this.service = service
-    this.logger = loggerFn()
+ 
   }
 
   async getAll (req, res) {
     try {
       const items = await this.service.getAll()
-      this.logger.info(`Usuarios retornados`)
+    
       return res.json(items)
     } catch (e) {
       console.log(e)
